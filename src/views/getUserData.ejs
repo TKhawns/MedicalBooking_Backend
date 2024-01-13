@@ -1,0 +1,51 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Users List</title>
+        <style>
+            table,
+            th,
+            td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                text-align: center;
+                vertical-align: middle;
+            }
+            .center {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .btn-edit,
+            .btn-delete {
+                margin-right: 30px;
+                outline: none;
+                height: 25;
+            }
+        </style>
+    </head>
+    <body>
+        <table style="width: 90%" class="center">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+            <% for(var i = 0; i < dataUser.length; i++) { %>
+            <tr>
+                <td><%= dataUser[i].firstName %></td>
+                <td><%= dataUser[i].lastName %></td>
+                <td><%= dataUser[i].email %></td>
+                <td><%= dataUser[i].address %></td>
+                <td>
+                    <!-- a tab must be a GET method -->
+                    <a href="/edit-crud?id=<%=dataUser[i].id%>" class="btn-edit" type="button">Edit</button>
+                    <a href="/delete-user?id=<%=dataUser[i].id%>" class="btn-delete" type="delete">Delete</button>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+    </body>
+</html>
